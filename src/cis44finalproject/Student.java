@@ -50,7 +50,7 @@ public class Student implements  Comparable<Student> {
     @Override
     public String toString()
     {
-        return "First Name: " + this.fName + " Last Name: " + this.lName + "\nGPA: " + this.GPA;
+        return String.format("%s%6s%12.2f", this.fName , this.lName, this.GPA);
     }
     
     @Override
