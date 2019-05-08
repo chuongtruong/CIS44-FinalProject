@@ -37,9 +37,10 @@ public class Main {
         Scanner input = new Scanner(System.in);
         int userChoice;
         boolean isContinue = true;
-        boolean showMenu = true;
+        boolean showMenu = false;
         
         while (isContinue) {
+            System.out.println("Press 0 to show menu.");
             while(showMenu)
             {
             System.out.println("WELCOME TO THE GRADEBOOK.");
@@ -48,12 +49,17 @@ public class Main {
             System.out.println("1. See students.\n2. Add Students\n3. Ranking\n4. Accept student from waiting list.\n"
                     + "5. Find the best student\n6. Find the worst student\n10. Exit the program.");
             System.out.print("Choice: ");
-            showMenu = false;
             }
             
             //enter options to continue the program
             userChoice = input.nextInt();
             switch (userChoice) {
+                case 0:
+                    showMenu = true;
+                    break;
+                    case 20:
+                    showMenu = true;
+                    break;
                 case 1: //See list of students
                     System.out.println("Total student is: " + studentBag.getCurrentSize());
                     System.out.println("------------------------------------------------");
@@ -82,6 +88,7 @@ public class Main {
                     break;
                 case 4://Add student from waiting list to current list.
                     Student firstStudentFromWaitingList = waitingList.dequeue();
+                    
                     if(firstStudentFromWaitingList != null)
                     {
                         studentBag.add(firstStudentFromWaitingList);
@@ -105,7 +112,7 @@ public class Main {
                     }
                     System.out.println("The best student is: " + studentStack.pop().toString());
                     System.out.println("");
-                    break;                    
+                    break;                   
                 case 10:
                     isContinue = false;
                     break;
@@ -150,6 +157,7 @@ public class Main {
         Object[] rawStudentData = inputBag.toArray();
         Student currentStudent;
         Student[] toArrayStudent = new Student[rawStudentData.length];
+        
         for (int i = 0; i < rawStudentData.length; i++) {
             currentStudent = (Student) rawStudentData[i];
             toArrayStudent[i] = currentStudent;
